@@ -12,6 +12,7 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <junit5.version>5.9.1</junit5.version>
+        <git-code-format-maven-plugin.version>5.3</git-code-format-maven-plugin.version>
     </properties>
 
     <dependencies>
@@ -52,6 +53,36 @@
               <test>com.brunoshiroma.java.vinte.um.estudos/**/*.java</test>
             </configuration>
         </plugin>
+        <plugin>
+      <groupId>com.cosium.code</groupId>
+      <artifactId>git-code-format-maven-plugin</artifactId>
+      <version>${git-code-format-maven-plugin.version}</version>
+      <executions>
+        <!-- On commit, format the modified files -->
+        <execution>
+          <id>install-formatter-hook</id>
+          <goals>
+            <goal>install-hooks</goal>
+          </goals>
+        </execution>
+        <!-- On Maven verify phase, fail if any file
+        (including unmodified) is badly formatted -->
+        <execution>
+          <id>validate-code-format</id>
+          <goals>
+            <goal>validate-code-format</goal>
+          </goals>
+        </execution>
+      </executions>
+      <dependencies>
+        <!-- Enable https://github.com/google/google-java-format -->
+        <dependency>
+          <groupId>com.cosium.code</groupId>
+          <artifactId>google-java-format</artifactId>
+          <version>${git-code-format-maven-plugin.version}</version>
+        </dependency>
+      </dependencies>
+    </plugin>
   </plugins>
 </build>
 
