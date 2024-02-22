@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.brunoshiroma.java.vinte.um</groupId>
@@ -24,68 +24,66 @@
         </dependency>
     </dependencies>
 
-    
 
-<build>
-  <plugins>
-    <plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-compiler-plugin</artifactId>
-    <version>3.10.1</version>
-    <configuration>
-        <release>21</release>
-        <enablePreview>true</enablePreview>
-    </configuration>
-</plugin>
-<plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-surefire-plugin</artifactId>
-            <version>3.2.5</version>
-            <dependencies>
-                <dependency>
-                    <groupId>org.junit.jupiter</groupId>
-                    <artifactId>junit-jupiter-engine</artifactId>
-                    <version>${junit5.version}</version>
-                </dependency>
-            </dependencies>
-            <configuration>
-            <argLine>--enable-preview</argLine>
-              <test>com.brunoshiroma.java.vinte.um.estudos/**/*.java</test>
-            </configuration>
-        </plugin>
-        <plugin>
-      <groupId>com.cosium.code</groupId>
-      <artifactId>git-code-format-maven-plugin</artifactId>
-      <version>${git-code-format-maven-plugin.version}</version>
-      <executions>
-        <!-- On commit, format the modified files -->
-        <execution>
-          <id>install-formatter-hook</id>
-          <goals>
-            <goal>install-hooks</goal>
-          </goals>
-        </execution>
-        <!-- On Maven verify phase, fail if any file
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
+                <configuration>
+                    <release>21</release>
+                    <enablePreview>true</enablePreview>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.junit.jupiter</groupId>
+                        <artifactId>junit-jupiter-engine</artifactId>
+                        <version>${junit5.version}</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <argLine>--enable-preview</argLine>
+                    <test>com.brunoshiroma.java.vinte.um.estudos/**/*.java</test>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.cosium.code</groupId>
+                <artifactId>git-code-format-maven-plugin</artifactId>
+                <version>${git-code-format-maven-plugin.version}</version>
+                <executions>
+                    <!-- On commit, format the modified files -->
+                    <execution>
+                        <id>install-formatter-hook</id>
+                        <goals>
+                            <goal>install-hooks</goal>
+                        </goals>
+                    </execution>
+                    <!-- On Maven verify phase, fail if any file
         (including unmodified) is badly formatted -->
-        <execution>
-          <id>validate-code-format</id>
-          <goals>
-            <goal>validate-code-format</goal>
-          </goals>
-        </execution>
-      </executions>
-      <dependencies>
-        <!-- Enable https://github.com/google/google-java-format -->
-        <dependency>
-          <groupId>com.cosium.code</groupId>
-          <artifactId>google-java-format</artifactId>
-          <version>${git-code-format-maven-plugin.version}</version>
-        </dependency>
-      </dependencies>
-    </plugin>
-  </plugins>
-</build>
-
+                    <execution>
+                        <id>validate-code-format</id>
+                        <goals>
+                            <goal>validate-code-format</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <!-- Enable https://github.com/google/google-java-format -->
+                    <dependency>
+                        <groupId>com.cosium.code</groupId>
+                        <artifactId>google-java-format</artifactId>
+                        <version>${git-code-format-maven-plugin.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>
