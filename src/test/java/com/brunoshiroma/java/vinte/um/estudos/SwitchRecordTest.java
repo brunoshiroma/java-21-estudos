@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
  *     https://docs.oracle.com/en/java/javase/21/language/pattern-matching-switch-expressions-and-statements.html
  * @see https://spring.io/blog/2023/09/20/hello-java-21#enhanced-switch
  */
-class SwitchRecordTeste {
+class SwitchRecordTest {
 
   record Usuario(String nome) {}
 
