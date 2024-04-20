@@ -54,14 +54,9 @@ jobs:
       with:
         languages: ${{ matrix.language }}
 
-    # Autobuild attempts to build any compiled languages (C/C++, C#, Go, Java, or Swift).
-    # If this step fails, then you should remove it and run the build manually (see below)
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v3
-
     - run: |
         echo "Run, Build Application using script"
-        ./mvnw test
+        ./mvnw compile
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
